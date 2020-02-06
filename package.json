@@ -1,0 +1,60 @@
+{
+  "name": "@blacktoolbox/vue-list",
+  "packageName": "btblab-vue-list",
+  "version": "1.0.0",
+  "description": "List maker based on Vue",
+  "keywords": [
+    "blacktoolbox",
+    "vue",
+    "list"
+  ],
+  "license": "MIT",
+  "author": "Van Noel <vannoel0628@gmail.com>",
+  "homepage": "https://blacktoolboxlaboratory.github.io/vue/",
+  "bugs": {
+    "url": "https://github.com/BlackToolBoxLaboratory/vue-list/issues",
+    "email": "vannoel0628@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BlackToolBoxLaboratory/vue-list.git"
+  },
+  "main": "lib/index.js",
+  "module": "es/index.js",
+  "jsnext:main": "es/index.js",
+  "scripts": {
+    "cleanModules": "rimraf node_modules",
+    "cleanDir": "rimraf umd lib esm",
+    "build-components": "rollup -c",
+    "build": "npm run lint && npm run build-components",
+    "lint": "eslint --fix --ext .js,.vue module",
+    "prepare": "npm run cleanDir && npm run build",
+    "backup": "gulp backup"
+  },
+  "dependencies": {
+    "core-js": "^3.4.4",
+    "vue": "^2.6.10"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "^4.1.0",
+    "@vue/cli-plugin-eslint": "^4.1.0",
+    "@vue/cli-service": "^4.1.0",
+    "@vue/eslint-config-standard": "^4.0.0",
+    "babel-eslint": "^10.0.3",
+    "eslint": "^5.16.0",
+    "eslint-plugin-vue": "^5.0.0",
+    "gulp": "^4.0.2",
+    "gulp-postcss": "^8.0.0",
+    "gulp-rename": "^2.0.0",
+    "gulp-sass": "^4.0.2",
+    "node-sass": "^4.12.0",
+    "rollup": "^1.30.1",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-node-globals": "^1.4.0",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-postcss": "^2.0.5",
+    "rollup-plugin-vue": "^5.1.6",
+    "sass-loader": "^8.0.0",
+    "vue-template-compiler": "^2.6.10"
+  }
+}
