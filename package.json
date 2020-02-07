@@ -1,16 +1,18 @@
 {
   "name": "@blacktoolbox/vue-list",
   "packageName": "btblab-vue-list",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "List maker based on Vue",
   "keywords": [
     "blacktoolbox",
+    "btblab",
+    "btb",
     "vue",
     "list"
   ],
   "license": "MIT",
   "author": "Van Noel <vannoel0628@gmail.com>",
-  "homepage": "https://blacktoolboxlaboratory.github.io/vue/",
+  "homepage": "https://blacktoolboxlaboratory.github.io/vue/#/packages/list",
   "bugs": {
     "url": "https://github.com/BlackToolBoxLaboratory/vue-list/issues",
     "email": "vannoel0628@gmail.com"

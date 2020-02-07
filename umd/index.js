@@ -45,34 +45,42 @@
         }
       },
       defaultActiveID: {
-        type: String,
-        default: ''
+        type: String
+      },
+      activeID: {
+        type: String
       }
     },
     data () {
       return {
         env: {
-          activeEntryID: this.$props.defaultActiveID
+          activeEntryID: ''
         }
       }
     },
     mounted () {
-      document.querySelectorAll(`.container_entry.entry-${this.env.activeEntryID}`).forEach((node) => {
-        node.classList.add('entry-active');
-      });
+      this.changeActiveEntry(this.$props.activeID || this.$props.defaultActiveID || '');
+    },
+    updated () {
+      if (typeof this.$props.activeID !== 'undefined') {
+        this.changeActiveEntry(this.$props.activeID);
+      }
     },
     methods: {
       clickEntry: function (entry) {
-        if (this.env.activeEntryID !== entry.id) {
+        this.changeActiveEntry(entry.id);
+        this.$emit('clickEntry', entry);
+      },
+      changeActiveEntry: function (id) {
+        if (this.env.activeEntryID !== id) {
           document.querySelectorAll(`.container_entry.entry-${this.env.activeEntryID}`).forEach((node) => {
             node.classList.remove('entry-active');
           });
-          document.querySelectorAll(`.container_entry.entry-${entry.id}`).forEach((node) => {
+          document.querySelectorAll(`.container_entry.entry-${id}`).forEach((node) => {
             node.classList.add('entry-active');
           });
-          this.env.activeEntryID = entry.id;
+          this.env.activeEntryID = id;
         }
-        this.$emit('clickEntry', entry);
       },
       toggleCollapsed: function (entry) {
         this.$emit('toggleCollapsed', entry);
