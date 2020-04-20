@@ -1,6 +1,8 @@
 .DS_Store
 node_modules
 module
+esm
+umd
 
 # local env files
 .env.local
