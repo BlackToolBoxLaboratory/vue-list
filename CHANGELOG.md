@@ -1,3 +1,9 @@
+## v1.1.1
+
+> Apr. 27, 2020
+
+- **Issue**: fix error to emit toggleCollapsed for nest list.
+
 ## v1.1.0
 
 > Feb. 7, 2020
