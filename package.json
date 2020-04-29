@@ -1,7 +1,7 @@
 {
   "name": "@blacktoolbox/vue-list",
   "packageName": "btblab-vue-list",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "List maker based on Vue",
   "keywords": [
     "blacktoolbox",

@@ -1,3 +1,9 @@
+## v1.1.2
+
+> Apr. 30, 2020
+
+- **Issue**: adjust max-height calculation.
+
 ## v1.1.1
 
 > Apr. 27, 2020
