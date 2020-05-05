@@ -1,3 +1,9 @@
+## v1.2.0
+
+> May. 6, 2020
+
+- **Minor**: add styleObj for css in js.
+
 ## v1.1.3
 
 > May. 4, 2020

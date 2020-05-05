@@ -2,9 +2,6 @@
   margin: 0;
   padding: 0;
 }
-.btb-vue-list-layer:not(.layer-0) {
-  padding-left: 1rem;
-}
 .btb-vue-list-layer .layer_container {
   list-style: none;
 }
