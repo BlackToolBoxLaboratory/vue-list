@@ -1,3 +1,10 @@
+## v1.3.1
+
+> May. 10, 2020
+
+- **Minor**: add v-moel to activeID.
+- **Issue**: enhance styleObj.
+
 ## v1.2.0
 
 > May. 6, 2020
