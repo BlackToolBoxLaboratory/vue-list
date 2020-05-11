@@ -1,3 +1,9 @@
+## v1.4.0
+
+> May. 12, 2020
+
+- **Minor**: add slot for customization of entry.
+
 ## v1.3.1
 
 > May. 10, 2020
