@@ -1,3 +1,9 @@
+## v1.4.1
+
+> May. 17, 2020
+
+- **Issue**: enhance the feature of active while without v-moel to activeID.
+
 ## v1.4.0
 
 > May. 12, 2020
