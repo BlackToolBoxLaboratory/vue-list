@@ -1,3 +1,9 @@
+## v1.4.2
+
+> May. 18, 2020
+
+- **Issue**: remove unnecessary update.
+
 ## v1.4.1
 
 > May. 17, 2020
