@@ -1,3 +1,9 @@
+## v1.4.3
+
+> May. 24, 2020
+
+- **Issue**: add $attrs and $listeners.
+
 ## v1.4.2
 
 > May. 18, 2020
