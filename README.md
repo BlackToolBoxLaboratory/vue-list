@@ -1,25 +1,46 @@
-# Blacktoolbox-vue-list
+# @blacktoolbox/vue-list
 
-Create list / menu with [Vue](https://vuejs.org/).
+This template should help get you started developing with Vue 3 in Vite.
 
-# Installation
+## Recommended IDE Setup
 
-Using with [NPM](https://www.npmjs.com/):
+[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
 
-    $ npm install --save @blacktoolbox/vue-list
+## Type Support for `.vue` Imports in TS
 
-    // using ES6 modules
-    import Menu from '@blacktoolbox/vue-list';
+TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin) to make the TypeScript language service aware of `.vue` types.
 
-    // using CommonJS modules
-    var Menu = require('@blacktoolbox/vue-list');
+If the standalone TypeScript plugin doesn't feel fast enough to you, Volar has also implemented a [Take Over Mode](https://github.com/johnsoncodehk/volar/discussions/471#discussioncomment-1361669) that is more performant. You can enable it by the following steps:
 
-# Issue
+1. Disable the built-in TypeScript Extension
+    1) Run `Extensions: Show Built-in Extensions` from VSCode's command palette
+    2) Find `TypeScript and JavaScript Language Features`, right click and select `Disable (Workspace)`
+2. Reload the VSCode window by running `Developer: Reload Window` from the command palette.
 
-Feel free to see around the codebase and share your experience with us. We will be grateful to be given advices. 
+## Customize configuration
 
-Please file [issue](https://github.com/BlackToolBoxLaboratory/vue-list/issues), if you have any issue or idea.
+See [Vite Configuration Reference](https://vitejs.dev/config/).
 
-# Homepage
+## Project Setup
 
-You can see the document website [on-line](https://blacktoolboxlaboratory.github.io/vue/#/packages/list).
+```sh
+npm install
+```
+
+### Compile and Hot-Reload for Development
+
+```sh
+npm run dev
+```
+
+### Type-Check, Compile and Minify for Production
+
+```sh
+npm run build
+```
+
+### Lint with [ESLint](https://eslint.org/)
+
+```sh
+npm run lint
+```

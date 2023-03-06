@@ -1,3 +1,9 @@
+## v2.0.0
+
+> Mar. 6, 2023
+
+- **Major**: Refactor to Vue3
+
 ## v1.4.3
 
 > May. 24, 2020

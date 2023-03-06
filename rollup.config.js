@@ -1,35 +1,15 @@
-import fs from 'fs'
-import path from 'path'
-import nodeResolve from 'rollup-plugin-node-resolve'
-import nodeGlobals from 'rollup-plugin-node-globals'
-import commonjs from 'rollup-plugin-commonjs'
-import postcss from 'rollup-plugin-postcss'
-import autoprefixer from 'autoprefixer'
-import vue from 'rollup-plugin-vue'
+import fs from 'fs';
+import path from 'path';
+import { nodeResolve } from '@rollup/plugin-node-resolve';
+import commonjs from '@rollup/plugin-commonjs';
+import terser from '@rollup/plugin-terser';
+import postcss from 'rollup-plugin-postcss';
+import clear from 'rollup-plugin-clear';
+import typescript from 'rollup-plugin-typescript2';
+import vue from 'rollup-plugin-vue';
+import autoprefixer from 'autoprefixer';
 
-import { packageName } from './package.json'
-
-const baseConfig = {
-  input: path.resolve('module', 'index.js'),
-  plugins: [
-    nodeGlobals(),
-    nodeResolve({
-      mainFields: ['module', 'jsnext', 'main'],
-      extensions: [ '.vue', '.js']
-    }),
-    commonjs(),
-    postcss({
-      plugins: [
-        autoprefixer
-      ],
-      sourceMap: true,
-      extract: true,
-    }),
-    vue({
-      css: false
-    })
-  ]
-}
+const packageName = 'btblab-vue-list';
 
 if (!fs.existsSync('umd')) {
   fs.mkdirSync('umd')
@@ -41,35 +21,58 @@ if (!fs.existsSync('esm')) {
   fs.mkdirSync('esm')
 }
 
-export default [
-  // UMD
-  {
-    ...baseConfig,
-    output: {
+export default {
+  input: path.resolve('src', 'index.ts'),
+  output: [
+    {
+      globals: {
+        vue: 'Vue'
+      },
       format: 'umd',
       name: packageName,
       file: path.resolve('umd', `index.js`),
       sourcemap: false
-    }
-  },
-  // COMMON
-  {
-    ...baseConfig,
-    output: {
+    },
+    // COMMON
+    {
       format: 'cjs',
       name: packageName,
       file: path.resolve('lib', `index.js`),
       sourcemap: false
-    }
-  },
-  // ES
-  {
-    ...baseConfig,
-    output: {
+    },
+    // ES
+    {
+      globals: {
+        vue: 'Vue'
+      },
       format: 'esm',
       name: packageName,
       file: path.resolve('esm', `index.js`),
       sourcemap: false
     }
-  }
-]
+  ],
+  external: ['vue'],
+  plugins: [
+    clear({
+      targets: ['umd', 'lib', 'esm']
+    }),
+    nodeResolve({
+      mainFields: ['module', 'jsnext', 'main'],
+      extensions: ['.vue', 'ts']
+    }),
+    typescript(),
+    vue({
+      include: /\.vue$/,
+    }),
+    postcss({
+      plugins: [
+        autoprefixer()
+      ],
+      minimize: true,
+      sourceMap: true,
+      extract: true,
+    }),
+    commonjs(),
+    terser()
+  ]
+}
