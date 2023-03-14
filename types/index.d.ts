@@ -12,9 +12,7 @@ export declare type SearchStyleByClassName = (
 
 export declare type ListItemObj = {
   id: string;
-  routename: string;
   title: string;
-  langIndex: string;
   href?: string;
   defaultCollapsed?: boolean;
   children?: ListItemObj[];
