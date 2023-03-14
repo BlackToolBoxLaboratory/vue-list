@@ -1,8 +1,14 @@
+## v2.0.1
+
+> Mar. 14, 2023
+
+- **Issue**: Fix nested slots.
+
 ## v2.0.0
 
 > Mar. 6, 2023
 
-- **Major**: Refactor to Vue3
+- **Major**: Refactor to Vue3.
 
 ## v1.4.3
 

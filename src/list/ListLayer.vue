@@ -43,6 +43,9 @@
                 :iteration="props.iteration + 1" :collapseEnable="props.collapseEnable"
                 @updateLayerSize="(height) => updateLayer(height, entry.id)" @clickEntry="clickEntry"
                 @toggleCollapsed="toggleCollapsed">
+                <template v-for="name in slotList" #[name]>
+                  <slot :name="name" />
+                </template>
               </btb-vue-list-layer>
             </div>
           </template>
@@ -85,6 +88,7 @@ import type { ListItemObj } from "../../types/index";
 
 import {
   defineComponent,
+  computed,
   onMounted,
   reactive,
   inject,
@@ -124,6 +128,10 @@ export default defineComponent({
     const collapsedSet = reactive(new Set<string>());
 
     const refList = reactive<any>({});
+
+    const slotList = computed(() => {
+      return Object.keys(slots);
+    });
 
     const clickEntry = (entry: ListItemObj) => {
       emit("clickEntry", entry);
@@ -208,6 +216,7 @@ export default defineComponent({
       props,
       activeID,
       refList,
+      slotList,
       collapsedSet,
 
       clickEntry,

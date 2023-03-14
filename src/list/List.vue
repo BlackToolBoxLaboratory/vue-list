@@ -13,7 +13,7 @@
 import type { PropType } from "vue";
 import type { ListItemObj } from "../../types/index";
 
-import { defineComponent, onMounted, onUpdated, computed, provide, ref } from "vue";
+import { defineComponent, onUpdated, computed, provide, ref } from "vue";
 
 import { getStyle } from "../utils/styleMethods";
 import BtbVueListLayer from './ListLayer.vue';
