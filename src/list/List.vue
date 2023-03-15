@@ -16,7 +16,6 @@ import type { ListItemObj } from "../../types/index";
 import { defineComponent, onUpdated, computed, provide, ref } from "vue";
 
 import { getStyle } from "../utils/styleMethods";
-import BtbVueListLayer from './ListLayer.vue';
 
 export default defineComponent({
   name: "btb-vue-list",
@@ -33,9 +32,6 @@ export default defineComponent({
         return false;
       },
     },
-    defaultActiveID: {
-      type: String,
-    },
     activeID: {
       type: String,
     },
@@ -48,7 +44,7 @@ export default defineComponent({
   },
   emits: ["update:activeID", "clickEntry", "toggleCollapsed"],
   setup(props, { emit, slots }) {
-    const activeEntryID = ref(props.activeID || props.defaultActiveID || "");
+    const activeEntryID = ref(props.activeID || "");
 
     const slotList = computed(() => {
       return Object.keys(slots);
@@ -78,7 +74,6 @@ export default defineComponent({
 
     provide("BtbVueList-activeEntryID", activeEntryID);
     return {
-      BtbVueListLayer,
       getStyle,
 
       props,

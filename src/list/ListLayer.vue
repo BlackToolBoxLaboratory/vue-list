@@ -1,9 +1,9 @@
 <template>
   <ul :class="`btb-vue-list-layer layer-${props.iteration}`"
-    :style="{ ...getStyle(['btb-vue-list-layer', `layer-${props.iteration}`]) }">
+    :style="{ ...getStyle(['btb-vue-list-layer', `layer-${props.iteration}`], props.styleObj) }">
     <template v-for="entry in props.subdataList">
       <template v-if="entry.children">
-        <li class="layer_container" :style="{ ...getStyle(['layer_container']) }" :key="entry.id">
+        <li class="layer_container" :style="{ ...getStyle(['layer_container'], props.styleObj) }" :key="entry.id">
           <div
             :class="[`container_entry entry-${entry.id}`, { 'entry-collapsable': props.collapseEnable }, { 'entry-active': activeID && activeID === entry.id }]"
             :style="{
@@ -13,9 +13,9 @@
                 `entry-${entry.id}`,
                 (props.collapseEnable && 'entry-collapsable') || '',
                 activeID && activeID === entry.id ? 'entry-active' : '',
-              ]),
+              ], props.styleObj),
             }" @click="toggleCollapsedHandler(entry)">
-            <div class="entry_title" :style="{ ...getStyle(['entry_title']) }">
+            <div class="entry_title" :style="{ ...getStyle(['entry_title'], props.styleObj) }">
               <template v-if="$slots[entry.id]">
                 <slot :name="entry.id" />
               </template>
@@ -30,14 +30,15 @@
                     'entry_collapseBtn',
                     'collapseBtn-default',
                     (collapsedSet.has(entry.id) && 'collapseBtn-on') || '',
-                  ]),
+                  ], props.styleObj),
                 }">
-                <div class="collapseBtn_arrow" :style="{ ...getStyle(['collapseBtn_arrow']) }" />
+                <div class="collapseBtn_arrow" :style="{ ...getStyle(['collapseBtn_arrow'], props.styleObj) }" />
               </div>
             </template>
           </div>
           <template v-if="entry.children.length > 0">
-            <div class="container_sublayer" :id="`${entry.id}_sublayer`" :style="{ ...getStyle(['container_sublayer']) }"
+            <div class="container_sublayer" :id="`${entry.id}_sublayer`"
+              :style="{ ...getStyle(['container_sublayer'], props.styleObj) }"
               :ref="(el) => { refList[`${entry.id}_sublayer`] = el }">
               <btb-vue-list-layer :activeID="activeID" :subdataList="entry.children" :styleObj="props.styleObj"
                 :iteration="props.iteration + 1" :collapseEnable="props.collapseEnable"
@@ -52,7 +53,7 @@
         </li>
       </template>
       <template v-else>
-        <li class="layer_container" :style="{ ...getStyle(['layer_container']) }" :key="entry.id">
+        <li class="layer_container" :style="{ ...getStyle(['layer_container'], props.styleObj) }" :key="entry.id">
           <div :class="['container_entry', `entry-${entry.id}`, { 'entry-active': activeID && activeID === entry.id },]"
             :style="{
               'padding-left': `${props.iteration}rem`,
@@ -60,9 +61,9 @@
                 'container_entry',
                 `entry-${entry.id}`,
                 activeID && activeID === entry.id ? 'entry-active' : '',
-              ]),
+              ], props.styleObj),
             }" @click="clickEntry(entry)">
-            <div class="entry_title" :style="{ ...getStyle(['entry_title']) }">
+            <div class="entry_title" :style="{ ...getStyle(['entry_title'], props.styleObj) }">
               <template v-if="$slots[entry.id]">
                 <slot :name="entry.id" />
               </template>
@@ -71,7 +72,7 @@
                   {{ entry.title }}
                 </template>
                 <template v-else>
-                  <a className="title_link" :href="entry.href">{{entry.title}}</a>
+                  <a className="title_link" :href="entry.href">{{ entry.title }}</a>
                 </template>
               </template>
             </div>
@@ -83,7 +84,7 @@
 </template>
 
 <script lang="ts">
-import type { PropType } from "vue";
+import type { PropType, Ref } from "vue";
 import type { ListItemObj } from "../../types/index";
 
 import {
@@ -91,7 +92,7 @@ import {
   computed,
   onMounted,
   reactive,
-  inject,
+  inject
 } from "vue";
 
 import { getStyle } from "../utils/styleMethods";
@@ -124,7 +125,8 @@ export default defineComponent({
   },
   emits: ["clickEntry", "toggleCollapsed", "updateLayerSize"],
   setup(props, { emit, slots }) {
-    const activeID = inject<string>("BtbVueList-activeEntryID");
+    const activeID = inject<Ref>("BtbVueList-activeEntryID");
+
     const collapsedSet = reactive(new Set<string>());
 
     const refList = reactive<any>({});

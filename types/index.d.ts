@@ -28,9 +28,6 @@ export declare const BtbVueList: DefineComponent<{
     type: Boolean,
     default: boolean
   },
-  defaultActiveID: {
-    type: String,
-  },
   activeID: {
     type: String,
   },

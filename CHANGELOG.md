@@ -1,3 +1,10 @@
+## v2.0.4
+
+> Mar. 15, 2023
+
+- **Issue**: Remove unecessary parameter defaultActiveID.
+- **Issue**: Fix unworking styleObj.
+
 ## v2.0.2
 
 > Mar. 15, 2023
