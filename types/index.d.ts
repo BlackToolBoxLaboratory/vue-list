@@ -16,6 +16,7 @@ export declare type ListItemObj = {
   href?: string;
   defaultCollapsed?: boolean;
   children?: ListItemObj[];
+  [key: string]: any;
 };
 
 export declare const BtbVueList: DefineComponent<{
@@ -24,17 +25,17 @@ export declare const BtbVueList: DefineComponent<{
     default: array
   },
   collapseEnable: {
-    type: BooleanConstructor,
+    type: Boolean,
     default: boolean
   },
   defaultActiveID: {
-    type: StringConstructor,
+    type: String,
   },
   activeID: {
-    type: StringConstructor,
+    type: String,
   },
   styleObj: {
-    type: ObjectConstructor,
+    type: Record<string, any>,
     default: undefined
   },
 }>;
@@ -46,15 +47,15 @@ export declare const BtbVueListLayer: DefineComponent<{
     default: array
   },
   iteration: {
-    type: NumberConstructor,
+    type: Number,
     default: number;
   },
   collapseEnable: {
-    type: BooleanConstructor,
+    type: Boolean,
     default: boolean
   },
   styleObj: {
-    type: ObjectConstructor,
+    type: Record<string, any>,
     default: undefined
   },
 }>;

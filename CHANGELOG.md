@@ -1,3 +1,9 @@
+## v2.0.2
+
+> Mar. 15, 2023
+
+- **Issue**: Adjust type of ListItemObj.
+
 ## v2.0.1
 
 > Mar. 14, 2023
