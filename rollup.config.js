@@ -25,6 +25,7 @@ export default {
   input: path.resolve('src', 'index.ts'),
   output: [
     {
+      exports: 'named',
       globals: {
         vue: 'Vue'
       },
@@ -35,6 +36,7 @@ export default {
     },
     // COMMON
     {
+      exports: 'named',
       format: 'cjs',
       name: packageName,
       file: path.resolve('lib', `index.js`),
@@ -42,6 +44,7 @@ export default {
     },
     // ES
     {
+      exports: 'named',
       globals: {
         vue: 'Vue'
       },
