@@ -20,3 +20,10 @@ const componentInstaller = {
 };
 
 export default componentInstaller;
+
+export {
+  install,
+  
+  List,
+  ListLayer
+}

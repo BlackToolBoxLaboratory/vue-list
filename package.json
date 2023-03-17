@@ -1,8 +1,8 @@
 {
   "name": "@blacktoolbox/vue-list",
   "packageName": "btblab-vue-list",
-  "version": "2.0.4",
-  "description": "List maker based on Vue3",
+  "version": "2.0.5",
+  "description": "List / Menu maker based on Vue3",
   "keywords": [
     "blacktoolbox",
     "btblab",

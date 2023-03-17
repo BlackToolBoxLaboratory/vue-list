@@ -1,3 +1,9 @@
+## v2.0.5
+
+> Mar. 17, 2023
+
+- **Issue**: Add export components.
+
 ## v2.0.4
 
 > Mar. 15, 2023
