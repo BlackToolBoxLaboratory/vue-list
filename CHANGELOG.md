@@ -1,3 +1,9 @@
+## v2.0.6
+
+> Mar. 17, 2023
+
+- **Issue**: Improvement of typescript.
+
 ## v2.0.5
 
 > Mar. 17, 2023

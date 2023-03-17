@@ -85,7 +85,7 @@
 
 <script lang="ts">
 import type { PropType, Ref } from "vue";
-import type { ListItemObj } from "../../types/index";
+import type { ListItemObj } from "../types";
 
 import {
   defineComponent,

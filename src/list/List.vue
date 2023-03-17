@@ -11,7 +11,7 @@
 
 <script lang="ts">
 import type { PropType } from "vue";
-import type { ListItemObj } from "../../types/index";
+import type { ListItemObj } from "../types";
 
 import { defineComponent, onUpdated, computed, provide, ref } from "vue";
 

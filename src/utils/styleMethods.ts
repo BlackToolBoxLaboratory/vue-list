@@ -1,4 +1,4 @@
-import type { GetStyle, SearchStyleByClassName} from "../../types/index";
+import type { GetStyle, SearchStyleByClassName} from "../types";
 
 const getStyle:GetStyle = (classList, styleObj) => {
   let classObj: Record<string, any> = {};

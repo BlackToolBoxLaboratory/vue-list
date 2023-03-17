@@ -1,5 +1,6 @@
 import type { App } from "vue";
 
+import { GetStyle, SearchStyleByClassName, ListItemObj } from './types';
 import { List, ListLayer } from "./list/index";
 
 const install = function (app: App) {
@@ -23,7 +24,11 @@ export default componentInstaller;
 
 export {
   install,
-  
+
   List,
-  ListLayer
+  ListLayer,
+
+  GetStyle,
+  SearchStyleByClassName,
+  ListItemObj
 }
