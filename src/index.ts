@@ -3,24 +3,10 @@ import type { App } from "vue";
 import { GetStyle, SearchStyleByClassName, ListItemObj } from './types';
 import { List, ListLayer } from "./list/index";
 
-const install = function (app: App) {
-  if (install.installed) {
-    /* istanbul ignore next */
-    return;
-  }
-  install.installed = true;
-
+export default  function install (app: App) {
   app.component(List.name, List);
   app.component(ListLayer.name, ListLayer);
 };
-
-install.installed = false;
-
-const componentInstaller = {
-  install
-};
-
-export default componentInstaller;
 
 export {
   install,
