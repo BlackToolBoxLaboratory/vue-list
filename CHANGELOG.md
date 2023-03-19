@@ -1,3 +1,9 @@
+## v2.0.8
+
+> Mar. 19, 2023
+
+- **Issue**: Fix behavior of v-model.
+
 ## v2.0.7
 
 > Mar. 17, 2023

@@ -13,7 +13,7 @@
 import type { PropType } from "vue";
 import type { ListItemObj } from "../types";
 
-import { defineComponent, onUpdated, computed, provide, ref } from "vue";
+import { defineComponent, onUpdated, computed, provide, ref, watch } from "vue";
 
 import { getStyle } from "../utils/styleMethods";
 
@@ -44,7 +44,7 @@ export default defineComponent({
   },
   emits: ["update:activeID", "clickEntry", "toggleCollapsed"],
   setup(props, { emit, slots }) {
-    const activeEntryID = ref(props.activeID || "");
+    const activeEntryID = ref(props.activeID);
 
     const slotList = computed(() => {
       return Object.keys(slots);
@@ -56,10 +56,10 @@ export default defineComponent({
     };
 
     const changeActiveID = (id: string) => {
-      activeEntryID.value = id;
       if (typeof props.activeID !== "undefined") {
-        emit("update:activeID", id);
+        activeEntryID.value = id;
       }
+      emit("update:activeID", id);
     };
 
     const toggleCollapsed = (entry: ListItemObj) => {
@@ -71,6 +71,13 @@ export default defineComponent({
         changeActiveID(props.activeID);
       }
     })
+
+    watch(
+      () => props.activeID,
+      (newValue, oldValue) => {
+        activeEntryID.value = newValue;
+      }
+    )
 
     provide("BtbVueList-activeEntryID", activeEntryID);
     return {

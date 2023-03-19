@@ -1,6 +1,4 @@
-import type { GetStyle, SearchStyleByClassName} from "../types";
-
-const getStyle:GetStyle = (classList, styleObj) => {
+const getStyle = (classList, styleObj) => {
   let classObj: Record<string, any> = {};
   classList.forEach((classname) => {
     classObj = Object.assign(
@@ -12,7 +10,7 @@ const getStyle:GetStyle = (classList, styleObj) => {
   return classObj;
 }
 
-const searchStyleByClassName:SearchStyleByClassName = (classname, styleObj) => {
+const searchStyleByClassName = (classname, styleObj) => {
   let result = {};
   if (typeof styleObj === "object") {
     Object.keys(styleObj).find((specname) => {

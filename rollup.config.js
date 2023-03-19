@@ -76,6 +76,6 @@ export default {
       extract: true,
     }),
     commonjs(),
-    // terser()
+    terser()
   ]
 }
