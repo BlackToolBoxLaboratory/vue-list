@@ -2,8 +2,8 @@
   <div class="btb-vue-list" :style="{ ...getStyle(['btb-vue-list'], props.styleObj) }">
     <btb-vue-list-layer id="root" :activeID="activeEntryID" :subdataList="props.dataList" :styleObj="props.styleObj"
       :collapseEnable="props.collapseEnable" :iteration="0" @clickEntry="clickEntry" @toggleCollapsed="toggleCollapsed">
-      <template v-for="name in slotList" #[name]>
-        <slot :name="name" />
+      <template v-for="name in slotList" #[name]="slotProps">
+        <slot :name="name" :="slotProps"/>
       </template>
     </btb-vue-list-layer>
   </div>

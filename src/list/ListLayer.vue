@@ -17,7 +17,7 @@
             }" @click="toggleCollapsedHandler(entry)">
             <div class="entry_title" :style="{ ...getStyle(['entry_title'], props.styleObj) }">
               <template v-if="$slots[entry.id]">
-                <slot :name="entry.id" />
+                <slot :name="entry.id" :item="entry"/>
               </template>
               <template v-else>
                 {{ entry.title }}
@@ -44,8 +44,8 @@
                 :iteration="props.iteration + 1" :collapseEnable="props.collapseEnable"
                 @updateLayerSize="(height) => updateLayer(height, entry.id)" @clickEntry="clickEntry"
                 @toggleCollapsed="toggleCollapsed">
-                <template v-for="name in slotList" #[name]>
-                  <slot :name="name" />
+                <template v-for="name in slotList" #[name]="slotProps">
+                  <slot :name="name" :="slotProps"/>
                 </template>
               </btb-vue-list-layer>
             </div>
@@ -65,7 +65,7 @@
             }" @click="clickEntry(entry)">
             <div class="entry_title" :style="{ ...getStyle(['entry_title'], props.styleObj) }">
               <template v-if="$slots[entry.id]">
-                <slot :name="entry.id" />
+                <slot :name="entry.id" :item="entry" />
               </template>
               <template v-else>
                 <template v-if="typeof entry.href == 'undefined'">

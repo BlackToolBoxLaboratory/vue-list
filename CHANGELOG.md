@@ -1,3 +1,9 @@
+## v2.1.0
+
+> Mar. 20, 2023
+
+- **Minor**: Add slotProps.
+
 ## v2.0.8
 
 > Mar. 19, 2023
